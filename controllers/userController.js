@@ -21,7 +21,6 @@ async function updateUser(req, res) {
     try {
       // Update the user in the database
       const updatedUser = await User.updateProfile(username, email);
-      console.log("after update", updatedUser);
       return res.json(updatedUser); // Send back updated user data
     } catch (err) {
       console.error(err);
