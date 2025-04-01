@@ -5,7 +5,9 @@ const db = require('../db');
 dotenv.config();
 
 // Set the DATABASE_URL for testing (You can override the env var for testing)
-process.env.DATABASE_URL = process.env.DATABASE_URL || 'postgres://mtkephart:Aircatfloats3@localhost:5432/midpointtest';
+if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not set in the environment variables.');
+}
 
 // Optional: Log the database URL for debugging
 console.log(`Connecting to database: ${process.env.DATABASE_URL}`);
